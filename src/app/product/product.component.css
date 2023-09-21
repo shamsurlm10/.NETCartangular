@@ -1,0 +1,19 @@
+.product-card {
+    max-width: 300px;
+    align-items: center;
+  }
+  .card-image{
+    max-width: 200px;
+  }
+  .card-price{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: red;
+    padding: 10px;
+  }
+  .card-star{
+    display: flex;
+  }
+  .star-icon{
+    color: #ffc815;
+  }

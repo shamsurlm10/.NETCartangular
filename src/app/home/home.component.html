@@ -1,2 +1,5 @@
 <app-search></app-search>
-<app-product-location [productLocationInput]="productLocation"></app-product-location>
+<div class="product-container">
+    <app-product *ngFor="let product of products" [productInput]="product"></app-product>
+  </div>
+  

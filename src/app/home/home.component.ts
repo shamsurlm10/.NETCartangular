@@ -3,11 +3,12 @@ import { SearchComponent } from '../search/search.component';
 import { ProductComponent } from '../product/product.component';
 import { Product } from '../product';
 import { CommonModule } from '@angular/common';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SearchComponent, ProductComponent, CommonModule],
+  imports: [SearchComponent, ProductComponent, MatGridListModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })

@@ -1,18 +1,25 @@
 <mat-card class="product-card">
-  <img class="card-image" mat-card-image
-    src="https://image-us.samsung.com/us/smartphones/galaxy-s23/images/gallery/phantom-black/01-DM1-PhantomBlack-PDP-1600x1200.jpg?$product-details-jpg$"
-    alt="Samsung Galaxy s23">
+  <div class="image-block">
+    <img class="card-image" mat-card-image
+    [src]="productInput.imageUrl"
+    [alt]="productInput.name">
+  </div>
   <mat-card-header>
     <mat-card-title>{{productInput.name}}</mat-card-title>
     <mat-card-subtitle>{{productInput.category}}</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content class="card-price">
-    ${{productInput.price | number: '1.2-2'}}
-  </mat-card-content>
   <div class="star-rating">
     <mat-icon class="star-icon" *ngFor="let star of [].constructor(productInput.ratings); let i = index">
       star
     </mat-icon>
+  </div>  
+  <div class="price-add-cart">
+    <mat-card-content class="card-price">
+      ${{productInput.price | number: '1.2-2'}}
+    </mat-card-content>
+    <button mat-mini-fab>
+      <mat-icon>add</mat-icon>
+    </button>
   </div>
   <mat-accordion class="card-expand">
     <mat-expansion-panel (opened)="panelOpenState = true"

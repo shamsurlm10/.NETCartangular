@@ -1,9 +1,15 @@
 .product-card {
     max-width: 300px;
-    align-items: center;
+  }
+  .image-block{
+    width: 250px;
+    height: 250px;
+    margin-left: auto;
   }
   .card-image{
     max-width: 200px;
+    max-height: 200px;
+
   }
   .card-price{
     font-size: 1.3rem;
@@ -16,4 +22,11 @@
   }
   .star-icon{
     color: #ffc815;
+    margin-left: 10px;
+  }
+  .price-add-cart{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
   }

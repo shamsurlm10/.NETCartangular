@@ -1,53 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { SearchComponent } from '../search/search.component';
 import { ProductComponent } from '../product/product.component';
-import { Product } from '../product';
 import { CommonModule } from '@angular/common';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SearchComponent, ProductComponent, MatGridListModule, CommonModule],
+  imports: [SearchComponent, ProductComponent, MatGridListModule, MatGridListModule, CommonModule],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-  products: Product[] = [{
-    id: 1,
-    name: 'Samsung Galaxy S23',
-    description: 'A large phone with one of the best screens',
-    price: 100,
-    imageUrl: 'https://image-us.samsung.com/us/smartphones/galaxy-s23/images/gallery/phantom-black/01-DM1-PhantomBlack-PDP-1600x1200.jpg?$product-details-jpg$',
-    category: 'Phone',
-    stockQuantity: 10,
-    isAvailable: true,
-    ratings: 4,
-    reviews: ['Good', 'Nice', 'Awesome']
-  },
-  {
-    id: 2,
-    name: 'iPhone 13',
-    description: 'A great phone with one of the best cameras',
-    price: 100,
-    imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-max-blue-select?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1631713938000',
-    category: 'Phone',
-    stockQuantity: 10,
-    isAvailable: true,
-    ratings: 4,
-    reviews: ['Good', 'Nice', 'Awesome']
-  },
-  {
-    id: 3,
-    name: 'iPhone 13 Pro',
-    description: 'A great phone with one of the best cameras',
-    price: 100,
-    imageUrl: 'https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-pro-blue-select?wid=940&hei=1112&fmt=png-alpha&qlt=80&.v=1631713938000',
-    category: 'Phone',
-    stockQuantity: 10,
-    isAvailable: true,
-    ratings: 4,
-    reviews: ['Good', 'Nice', 'Awesome']
+  products: Product[] = [];
+  productservice: ProductService=inject(ProductService);
+
+  constructor() { 
+    this.products = this.productservice.getAllProducts();
   }
-  ];
 }

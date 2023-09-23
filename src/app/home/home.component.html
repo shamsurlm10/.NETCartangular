@@ -1,5 +1,7 @@
 <app-search></app-search>
-<div class="product-container">
-    <app-product *ngFor="let product of products" [productInput]="product"></app-product>
-  </div>
-  
+<mat-grid-list cols="4" rowHeight="2:4">
+  <mat-grid-tile *ngFor="let product of products">
+    <app-product [productInput]="product">
+    </app-product>
+  </mat-grid-tile>
+</mat-grid-list>

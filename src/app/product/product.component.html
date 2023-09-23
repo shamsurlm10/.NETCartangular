@@ -1,8 +1,6 @@
 <mat-card class="product-card">
   <div class="image-block">
-    <img class="card-image" mat-card-image
-    [src]="productInput.imageUrl"
-    [alt]="productInput.name">
+    <img class="card-image" mat-card-image [src]="productInput.imageUrl" [alt]="productInput.name">
   </div>
   <mat-card-header>
     <mat-card-title>{{productInput.name}}</mat-card-title>
@@ -12,7 +10,7 @@
     <mat-icon class="star-icon" *ngFor="let star of [].constructor(productInput.ratings); let i = index">
       star
     </mat-icon>
-  </div>  
+  </div>
   <div class="price-add-cart">
     <mat-card-content class="card-price">
       ${{productInput.price | number: '1.2-2'}}
@@ -22,14 +20,16 @@
     </button>
   </div>
   <mat-accordion class="card-expand">
-    <mat-expansion-panel (opened)="panelOpenState = true"
-                         (closed)="panelOpenState = false">
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
       <mat-expansion-panel-header>
         <mat-panel-title>
           Description
         </mat-panel-title>
       </mat-expansion-panel-header>
       <p>{{productInput.description}}</p>
+      <div class="learn-more">
+        <button [routerLink]="['/details', productInput.id]" mat-button color="primary">learn more</button>
+      </div>
     </mat-expansion-panel>
   </mat-accordion>
 </mat-card>

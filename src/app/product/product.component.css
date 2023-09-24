@@ -17,12 +17,8 @@
     color: red;
     padding: 10px;
   }
-  .card-star{
-    display: flex;
-  }
   .star-icon{
     color: #ffc815;
-    margin-left: 10px;
   }
   .price-add-cart{
     display: flex;

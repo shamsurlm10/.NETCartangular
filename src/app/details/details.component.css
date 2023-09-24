@@ -1,0 +1,36 @@
+.details-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .centered-card {
+    width: 100%;
+    max-width: 60%;
+  }
+  .star-rating {
+    display: flex;
+    align-items: center;
+  }
+  
+  .stars {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+  }
+  
+  .star-icon {
+    color: #ffc815;
+    font-size: 24px;
+  }
+  
+  .rating {
+    font-size: 15px;
+    padding: 5px;
+  }
+  
+  
+  
+  
+  
+  

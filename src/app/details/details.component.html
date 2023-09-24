@@ -1,1 +1,49 @@
-
+<div class="details-card">
+  <div class="centered-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-subtitle>{{ product?.category }}</mat-card-subtitle>
+          <mat-card-title>
+            <h1>{{ product?.name }}</h1>
+            <div class="star-rating">
+                <div class="stars">
+                  <mat-icon class="star-icon" *ngFor="let star of [].constructor(product?.ratings); let i = index">
+                    star
+                  </mat-icon>
+                </div>
+                <div class="rating">
+                  {{ product?.ratings }}/5
+                </div>
+                <div class="rating">
+                    ({{ product?.reviews?.length }} Reviews)
+                  </div>
+              </div>       
+              <mat-card-content style="color: rgb(214, 0, 0);">
+                {{product?.price | currency:'USD':true:'1.2-2'}}
+            </mat-card-content>       
+          </mat-card-title>
+          <img
+            mat-card-xl-image
+            src="{{product?.imageUrl}}"
+          />
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        {{ product?.description }}
+      </mat-card-content>
+      <mat-card-content>
+        Unit Available: {{ product?.stockQuantity }}
+      </mat-card-content>
+      <mat-card-content>
+        Reviews:{{product?.reviews}}
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <input matInput>
+  </mat-form-field>
+</form>

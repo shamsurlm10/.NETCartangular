@@ -11,7 +11,7 @@ export class ProductService {
     id: 1,
     name: 'Samsung Galaxy S23',
     description: 'A large phone with one of the best screens',
-    price: 100,
+    price: 750,
     imageUrl: 'https://image-us.samsung.com/us/smartphones/galaxy-s23/images/gallery/phantom-black/01-DM1-PhantomBlack-PDP-1600x1200.jpg?$product-details-jpg$',
     category: 'Phone',
     stockQuantity: 10,

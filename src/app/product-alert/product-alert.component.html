@@ -1,1 +1,3 @@
-<p>product-alert works!</p>
+<div *ngIf="productInput && productInput.price > 700">
+    <button (click)="notify.emit()" mat-button color="primary">Notify Me</button>
+</div>

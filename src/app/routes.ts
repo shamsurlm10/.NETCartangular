@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { DetailsComponent } from './details/details.component';
 import { HomeComponent } from './home/home.component';
+import { CartComponent } from './cart/cart.component';
 
 const routeConfig: Routes = [
   {
@@ -13,6 +14,11 @@ const routeConfig: Routes = [
     component: DetailsComponent,
     title: 'Details',
   },
+  {
+    path: 'cart',
+    component: CartComponent,
+    title: 'Cart',
+  }
 ];
 
 export default routeConfig;

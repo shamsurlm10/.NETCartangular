@@ -1,7 +1,21 @@
-<app-search></app-search>
-<mat-grid-list cols="4" rowHeight="2:4">
-  <mat-grid-tile *ngFor="let product of products">
-    <app-product [productInput]="product">
+<div class="search-container">
+  <div class="search-form">
+    <mat-form-field class="search-full-width">
+      <mat-label>Search</mat-label>
+      <input
+        type="search"
+        matInput
+        placeholder="Filter by product"
+        #filter
+      />
+    </mat-form-field>
+  <button mat-raised-button color="accent" (click)="filterResult(filter.value)">Search</button>
+  </div>
+</div>
+
+<mat-grid-list cols="4" rowHeight="3:5">
+  <mat-grid-tile *ngFor="let product of filterProducts">
+    <app-product [productInput]="product" >
     </app-product>
   </mat-grid-tile>
 </mat-grid-list>

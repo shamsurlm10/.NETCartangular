@@ -1,23 +1,45 @@
 import { Component, inject } from '@angular/core';
-import { SearchComponent } from '../search/search.component';
 import { ProductComponent } from '../product/product.component';
 import { CommonModule } from '@angular/common';
-import {MatGridListModule} from '@angular/material/grid-list';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [SearchComponent, ProductComponent, MatGridListModule, MatGridListModule, CommonModule],
+  imports: [
+    ProductComponent,
+    MatGridListModule,
+    MatGridListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    CommonModule,
+  ],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent {
   products: Product[] = [];
-  productservice: ProductService=inject(ProductService);
+  filterProducts: Product[] = [];
+  productservice: ProductService = inject(ProductService);
 
-  constructor() { 
+  constructor() {
     this.products = this.productservice.getAllProducts();
+    this.filterProducts = this.products;
+  }
+  filterResult(text: string) {
+    if (text) {
+      this.filterProducts = this.products.filter((product) =>
+        product?.name.toLowerCase().includes(text.toLowerCase())
+      );
+    }
+    else {
+    this.filterProducts = this.products;
+  }
   }
 }

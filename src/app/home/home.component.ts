@@ -29,8 +29,10 @@ export class HomeComponent {
   productservice: ProductService = inject(ProductService);
 
   constructor() {
-    this.products = this.productservice.getAllProducts();
-    this.filterProducts = this.products;
+    this.productservice.getAllProducts().then((products: Product[]) => {
+      this.products = products;
+      this.filterProducts = products;
+    });
   }
   filterResult(text: string) {
     if (text) {

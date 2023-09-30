@@ -30,8 +30,10 @@ export class DetailsComponent {
     window.alert('Your product has been added to the cart!');
   }
   constructor(private route: ActivatedRoute){
-    this.productId = Number(this.route.snapshot.params['id']);
-    this.product = this.productservice.getProductById(this.productId);
+    const productId = Number(this.route.snapshot.params['id']);
+    this.productservice.getProductById(productId).then(product =>{
+      this.product=product;
+    })
   }
   OnNotify(){
     window.alert('You will be notified when the product goes on sale');

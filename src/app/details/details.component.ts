@@ -10,8 +10,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {FormsModule} from '@angular/forms';
 import {ProductAlertComponent} from '../product-alert/product-alert.component';
-import { CartService } from '../cart.service';
 import {MatButtonModule} from '@angular/material/button';
+import { CartItemService } from '../cart.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-details',
@@ -21,19 +22,26 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent {
-  cartService: CartService = inject(CartService);
-  productservice: ProductService=inject(ProductService);
   product:Product|undefined;
   productId=-1;
-  addToCart(product: Product){
-    this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
-  }
-  constructor(private route: ActivatedRoute){
+  http: HttpClient = inject(HttpClient);
+
+  constructor(private route: ActivatedRoute, private productService: ProductService){
     const productId = Number(this.route.snapshot.params['id']);
-    this.productservice.getProductById(productId).then(product =>{
+    this.productService.getProductById(productId).then(product =>{
       this.product=product;
     })
+  }
+  
+  addToCart(product: Product) {
+    this.http.post('https://localhost:7174/api/Cart', { cartId: 'someCartId', quantity: 1, dateCreated: new Date(), productId: product.id }).subscribe(
+      (response) => {
+        window.alert('Your product has been added to the cart!');
+      },
+      (error) => {
+        console.error('Failed to add the product to the cart:', error);
+      }
+    );
   }
   OnNotify(){
     window.alert('You will be notified when the product goes on sale');

@@ -22,9 +22,9 @@
             <mat-card-content style="color: rgb(214, 0, 0);">
               {{product?.price | currency:'USD':true:'1.2-2'}}
             </mat-card-content>
-              <mat-card-content>
-                <app-product-alert (notify)="OnNotify()"  *ngIf="product" [productInput]="product"></app-product-alert>
-              </mat-card-content>
+            <mat-card-content>
+              <app-product-alert (notify)="OnNotify()" *ngIf="product" [productInput]="product"></app-product-alert>
+            </mat-card-content>
           </mat-card-title>
           <img mat-card-xl-image src="{{product?.imageUrl}}" />
         </mat-card-title-group>
@@ -46,9 +46,3 @@
     </mat-card>
   </div>
 </div>
-<form class="example-form">
-  <mat-form-field class="example-full-width">
-    <mat-label>Favorite food</mat-label>
-    <input matInput>
-  </mat-form-field>
-</form>

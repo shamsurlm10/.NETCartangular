@@ -5,4 +5,5 @@ import routeConfig from './app/routes';
 import { provideRouter } from '@angular/router';
 bootstrapApplication(AppComponent, {
   providers: [provideAnimations(), provideRouter(routeConfig)],
-}).catch((e) => console.error(e));
+}
+).catch((e) => console.error(e));

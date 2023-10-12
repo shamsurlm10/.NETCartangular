@@ -1,18 +1,14 @@
-<div class="container">
-  <mat-card class="cart-item" *ngFor="let item of items">
-    <mat-card-header>
-      <mat-card-title-group>
-        <ng-container *ngIf="">
-        <mat-card-title></mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-        <img mat-card-sm-image [src]="">
-      </ng-container>
-      </mat-card-title-group>
-    </mat-card-header>
-    <mat-card-content>
-      Quantity: {{ item.quantity }}
-      ProductId: {{ item.productId }}
-      Date Created: {{ item.dateCreated | date: 'short' }}
-    </mat-card-content>
-  </mat-card>
-</div>
+
+  <div class="container">
+    <mat-card class="cart-item" *ngFor="let item of items">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{ item.name }}</mat-card-title>
+            <mat-card-subtitle>{{ item.price | currency }}</mat-card-subtitle>
+            <img mat-card-sm-image [src]="item.imageUrl" >
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+        </mat-card-content>
+      </mat-card>
+  </div>

@@ -2,10 +2,10 @@ export class Product {
     id: number;
     name: string;
     description: string;
-    imageUrl: string;
-    stockQuantity: number;
     price: number;
+    imageUrl: string;
     category: string;
+    stockQuantity: number;
     isAvailable: boolean;
     ratings: number;
     reviews: string[];

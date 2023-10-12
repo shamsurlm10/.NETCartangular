@@ -7,9 +7,10 @@ import { Product } from './product';
 export class ProductService {
 
   constructor() { }
-  url = 'https://localhost:7174/api/Product';
+  url = 'http://localhost:3000/products';
 
   async getAllProducts(): Promise<Product[]> {
+    debugger;
     const data = await fetch(this.url);
     return await data.json() ?? [];
   }
